@@ -170,6 +170,7 @@ function* authSaga({ type, payload }) {
       break;
     case ON_AUTHSTATE_FAIL:
       yield put(clearProfile());
+      yield put(signOutSuccess()); // TODO : to delete in admin mode
       break;
     case SET_AUTH_PERSISTENCE:
       try {

@@ -4,18 +4,18 @@ import { createBrowserHistory } from 'history';
 
 import ClientRoute from './ClientRoute';
 import PublicRoute from './PublicRoute';
-import AdminRoute from './AdminRoute';
+// import AdminRoute from './AdminRoute';
 
 import * as ROUTES from 'constants/routes';
 
 // Admin components
 // to be added on next update
 
-import Dashboard from 'views/admin/dashboard/Dashboard';
-import DashboardProducts from 'views/admin/products/Products';
-import DashboardUsers from 'views/admin/users/Users';
-import EditProduct from 'views/admin/products/EditProduct';
-import AddProduct from 'views/admin/products/AddProduct';
+// import Dashboard from 'views/admin/dashboard/Dashboard';
+// import DashboardProducts from 'views/admin/products/Products';
+// import DashboardUsers from 'views/admin/users/Users';
+// import EditProduct from 'views/admin/products/EditProduct';
+// import AddProduct from 'views/admin/products/AddProduct';
 
 import ProductSearch from 'components/product/ProductSearch';
 import SignUp from 'views/auth/SignUp';
@@ -33,53 +33,53 @@ import ScrollToTop from 'components/ui/ScrollToTop';
 export const history = createBrowserHistory();
 
 const AppRouter = () => (
-  <Router history={history}>
-    <Switch>
-        <Route
-            component={ScrollToTop(ProductSearch)}
-            exact
-            path={ROUTES.SEARCH}
-        />
-        <PublicRoute
-            component={Home}
-            exact
-            path={ROUTES.HOME}
-        />
-        <PublicRoute
-            component={ScrollToTop(SignUp)}
-            path={ROUTES.SIGNUP}
-        />
-        <PublicRoute
-            component={ScrollToTop(SignIn)}
-            path={ROUTES.SIGNIN}
-        />
-        <PublicRoute
-            component={ScrollToTop(ForgotPassword)}
-            path={ROUTES.FORGOT_PASSWORD}
-        />
-        <ClientRoute
-            component={ScrollToTop(UserAccount)}
-            exact
-            path={ROUTES.ACCOUNT}
-        />
-        <ClientRoute
-            component={ScrollToTop(EditAccount)}
-            exact
-            path={ROUTES.ACCOUNT_EDIT}
-        />
-        <ClientRoute
-            component={ScrollToTop(CheckOutStep1)}
-            path={ROUTES.CHECKOUT_STEP_1}
-        />
-        <ClientRoute
-            component={ScrollToTop(CheckOutStep2)}
-            path={ROUTES.CHECKOUT_STEP_2}
-        />
-        <ClientRoute
-            component={ScrollToTop(CheckOutStep3)}
-            path={ROUTES.CHECKOUT_STEP_3}
-        />
-        <AdminRoute
+    <Router history={history}>
+        <Switch>
+            <Route
+                component={ScrollToTop(ProductSearch)}
+                exact
+                path={ROUTES.SEARCH}
+            />
+            <PublicRoute
+                component={Home}
+                exact
+                path={ROUTES.HOME}
+            />
+            <PublicRoute
+                component={ScrollToTop(SignUp)}
+                path={ROUTES.SIGNUP}
+            />
+            <PublicRoute
+                component={ScrollToTop(SignIn)}
+                path={ROUTES.SIGNIN}
+            />
+            <PublicRoute
+                component={ScrollToTop(ForgotPassword)}
+                path={ROUTES.FORGOT_PASSWORD}
+            />
+            <ClientRoute
+                component={ScrollToTop(UserAccount)}
+                exact
+                path={ROUTES.ACCOUNT}
+            />
+            <ClientRoute
+                component={ScrollToTop(EditAccount)}
+                exact
+                path={ROUTES.ACCOUNT_EDIT}
+            />
+            <ClientRoute
+                component={ScrollToTop(CheckOutStep1)}
+                path={ROUTES.CHECKOUT_STEP_1}
+            />
+            <ClientRoute
+                component={ScrollToTop(CheckOutStep2)}
+                path={ROUTES.CHECKOUT_STEP_2}
+            />
+            <ClientRoute
+                component={ScrollToTop(CheckOutStep3)}
+                path={ROUTES.CHECKOUT_STEP_3}
+            />
+            {/*<AdminRoute
             component={ScrollToTop(Dashboard)}
             exact
             path={ROUTES.DASHBOARD}
@@ -99,10 +99,10 @@ const AppRouter = () => (
         <AdminRoute
             component={ScrollToTop(EditProduct)}
             path={ROUTES.EDIT_PRODUCT}
-        />
-        <PublicRoute component={ScrollToTop(PageNotFound)} />
-    </Switch>
-  </Router>
+        />*/}
+            <PublicRoute component={ScrollToTop(PageNotFound)} />
+        </Switch>
+    </Router>
 );
 
 export default AppRouter;

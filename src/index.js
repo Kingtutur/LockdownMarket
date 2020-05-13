@@ -20,13 +20,13 @@ WebFont.load({
 
 const { store, persistor } = configureStore();
 const AppRoot = () => (
-  <StrictMode>
+   <StrictMode>
     <Provider store={store}>
       <PersistGate loading={<Preloader />} persistor={persistor}>
         <AppRouter />
       </PersistGate>
     </Provider>
-  </StrictMode>  
+  </StrictMode>
 );
 
 if (window.navigator.onLine) {
