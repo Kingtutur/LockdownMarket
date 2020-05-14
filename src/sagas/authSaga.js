@@ -27,7 +27,6 @@ import { setProfile, clearProfile } from 'actions/profileActions';
 import { resetFilter } from 'actions/filterActions';
 import { resetShippingDetails } from 'actions/checkoutActions';
 
-import defaultAvatar from 'images/defaultAvatar.jpg';
 import defaultBanner from 'images/defaultBanner.jpg';
 
 function* handleError(e) {
@@ -94,7 +93,7 @@ function* authSaga({ type, payload }) {
         const fullname = payload.fullname.split(' ').map(name => name[0].toUpperCase().concat(name.substring(1))).join(' ');
         const user = {
           fullname,
-          avatar: defaultAvatar,
+          avatar: '', //TODO : may be add default avatar
           banner: defaultBanner,
           email: payload.email,
           address: '',
@@ -149,7 +148,7 @@ function* authSaga({ type, payload }) {
         // add the user if auth provider is not password
         const user = {
           fullname: payload.displayName ? payload.displayName : 'User',
-          avatar: payload.photoURL ? payload.photoURL : defaultAvatar,
+          avatar: payload.photoURL, //? payload.photoURL
           banner: defaultBanner,
           email: payload.email,
           address: '',

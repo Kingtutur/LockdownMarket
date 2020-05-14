@@ -81,7 +81,7 @@ module.exports = merge(baseConfig, {
     //   swDest: 'sw.js'
     // })
 
-    new workboxPlugin.GenerateSW({
+   /* new workboxPlugin.GenerateSW({
       cacheId: 'marche_deconfine', // change this
       swDest: 'sw.js',
       navigateFallback: '/index.html',
@@ -97,9 +97,9 @@ module.exports = merge(baseConfig, {
         handler: 'networkFirst'
       },
       {
-          urlPattern: /.*/,
+          urlPattern: /.,
           handler: 'networkFirst'
       }]
-    })
+    })*/
   ]
 });
