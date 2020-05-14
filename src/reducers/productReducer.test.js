@@ -13,11 +13,11 @@ test('Should add new item', () => {
     basket: [],
     filters: {
       name: '',
-      created: 0 
+      created: 0
     }
   };
 
-  const action = addProduct('gago', 3, 0);
+  const action = addProduct('', 3, 0);
   const state = itemReducer(testState, action);
-  expect(state.items[0]).toEqual(newItem); 
+  expect(state.items[0]).toEqual(newItem);
 });
