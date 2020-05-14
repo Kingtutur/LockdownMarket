@@ -3,7 +3,6 @@ const merge = require('webpack-merge');
 const DotEnv = require('dotenv');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const workboxPlugin = require('workbox-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -71,35 +70,5 @@ module.exports = merge(baseConfig, {
       'process.env.FIREBASE_MSG_SENDER_ID':JSON.stringify(process.env.FIREBASE_MSG_SENDER_ID),
       'process.env.FIREBASE_APP_ID':JSON.stringify(process.env.FIREBASE_APP_ID)
     }),
-    //  // keep module.id stable when vendor modules does not change
-    // new webpack.HashedModuleIdsPlugin(),
-    // // enable scope hoisting
-    // new webpack.optimize.ModuleConcatenationPlugin(),
-    // generate service worker
-    // new workboxPlugin.InjectManifest({
-    //   swSrc: path.resolve(__dirname, '../src/sw-src.js'),
-    //   swDest: 'sw.js'
-    // })
-
-   /* new workboxPlugin.GenerateSW({
-      cacheId: 'marche_deconfine', // change this
-      swDest: 'sw.js',
-      navigateFallback: '/index.html',
-      navigateFallbackWhitelist: [ /^\/[^\_]+\/?/ ],
-      clientsClaim: true,
-      skipWaiting: true,
-      runtimeCaching: [{
-          urlPattern: new RegExp('^https://fonts.(?:googleapis|gstatic).com/(.*)'),
-          handler: 'cacheFirst'
-      },
-      {
-        urlPattern: new RegExp(process.env.FIREBASE_DB_URL),
-        handler: 'networkFirst'
-      },
-      {
-          urlPattern: /.,
-          handler: 'networkFirst'
-      }]
-    })*/
   ]
 });
