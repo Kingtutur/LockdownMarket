@@ -10,7 +10,7 @@ class ProductForm extends Component {
     price: this.props.product ? this.props.product.price : 0,
     maxQuantity: this.props.product ? this.props.product.maxQuantity : 0,
     description: this.props.product ? this.props.product.description : '',
-    keywords: this.props.product ? this.props.product.keywords : ['gago'],
+    keywords: this.props.product ? this.props.product.keywords : [''],
     image: null,
     imageUrl: this.props.product ? this.props.product.image : ''
   };
@@ -39,9 +39,9 @@ class ProductForm extends Component {
     const img = e.target.files[0];
     const url = URL.createObjectURL(img);
 
-    this.setState({ 
+    this.setState({
       image: img,
-      imageUrl: url 
+      imageUrl: url
     });
   }
 
@@ -62,7 +62,7 @@ class ProductForm extends Component {
         dateAdded: new Date().getTime(),
         image: image ? image : imageUrl
       };
-      
+
       this.props.onSubmit(product);
     } else {
       alert('all fields are required');
@@ -75,75 +75,75 @@ class ProductForm extends Component {
 
     return (
       <div>
-        <form 
-            className="product-form" 
+        <form
+            className="product-form"
             onSubmit={this.onSubmit}
         >
           <div className="product-form-inputs">
             <div className="d-flex">
               <div className="product-form-field">
                 <span className="d-block padding-s">Product Name</span>
-                <input 
+                <input
                     className="input-form d-block"
                     onChange={this.onProductNameInput}
-                    placeholder="Product Name" 
+                    placeholder="Product Name"
                     readOnly={isLoading}
-                    type="text" 
+                    type="text"
                     value={name}
                 />
               </div>
               &nbsp;
               <div className="product-form-field">
                 <span className="d-block padding-s">Brand</span>
-                <input 
+                <input
                     className="input-form d-block"
                     onChange={this.onProductBrandInput}
-                    placeholder="Product Brand" 
+                    placeholder="Product Brand"
                     readOnly={isLoading}
-                    type="text" 
+                    type="text"
                     value={brand}
                 />
               </div>
             </div>
             <div className="product-form-field product-textarea">
               <span className="d-block padding-s">Product Description</span>
-              <textarea 
+              <textarea
                   className="input-form d-block"
                   onChange={this.onProductDescriptionInput}
-                  placeholder="Product Description" 
+                  placeholder="Product Description"
                   readOnly={isLoading}
-                  type="text" 
+                  type="text"
                   value={description}
               />
             </div>
             <div className="d-flex">
               <div className="product-form-field">
                 <span className="d-block padding-s">Price</span>
-                <input 
+                <input
                     className="input-form d-block"
                     onChange={this.onProductPriceInput}
                     placeholder="Product Price"
                     readOnly={isLoading}
-                    type="number" 
+                    type="number"
                     value={price}
                 />
               </div>
               &nbsp;
               <div className="product-form-field">
                 <span className="d-block padding-s">Stock Amount</span>
-                <input 
+                <input
                     className="input-form d-block"
                     onChange={this.onProductMaxQuantityInput}
                     placeholder="Max Quantity"
                     readOnly={isLoading}
-                    type="number" 
+                    type="number"
                     value={maxQuantity}
                 />
               </div>
             </div>
             <br/>
             <div className="product-form-field product-form-submit">
-              <button 
+              <button
                   className="button"
                   disabled={isLoading}
                   type="submit"
@@ -156,13 +156,13 @@ class ProductForm extends Component {
           <div className="product-form-file">
             <div className="product-form-field">
               <span className="d-block padding-s">Image</span>
-              <input 
+              <input
                   disabled={isLoading}
                   hidden
                   id="product-input-file"
                   onChange={this.onImageChange}
                   readOnly={isLoading}
-                  type="file" 
+                  type="file"
               />
               <label htmlFor="product-input-file">
                 Choose image product
@@ -173,7 +173,7 @@ class ProductForm extends Component {
                 <ImageLoader
                     alt=""
                     className="product-form-image-preview"
-                    src={imageUrl} 
+                    src={imageUrl}
                 />
               </div>
             )}

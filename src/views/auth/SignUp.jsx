@@ -64,7 +64,7 @@ const SignUp = (props) => {
                 className={`input-form d-block ${errorClassName('fullname')}`}
                 maxLength={40}
                 onKeyUp={onFullnameInput}
-                placeholder="John Doe"
+                placeholder="Sherlock Holmes"
                 readOnly={isAuthenticating}
                 style={{ textTransform: 'capitalize' }}
                 type="text"
