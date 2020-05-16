@@ -5,6 +5,16 @@ const SideNavigation = () => {
   return (
     <aside className="sidenavigation">
       <div className="sidenavigation-wrapper">
+          
+      <div className="sidenavigation-item">
+          <NavLink 
+              activeClassName="sidenavigation-menu-active"
+              className="sidenavigation-menu"
+              to="/dashboard/market"
+          >
+            Marchés
+          </NavLink>
+        </div>
         <div className="sidenavigation-item">
           <NavLink 
               activeClassName="sidenavigation-menu-active"

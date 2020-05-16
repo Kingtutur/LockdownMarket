@@ -4,18 +4,27 @@ import { createBrowserHistory } from 'history';
 
 import ClientRoute from './ClientRoute';
 import PublicRoute from './PublicRoute';
-// import AdminRoute from './AdminRoute';
+ import AdminRoute from './AdminRoute';
 
 import * as ROUTES from 'constants/routes';
 
 // Admin components
 // to be added on next update
 
-// import Dashboard from 'views/admin/dashboard/Dashboard';
-// import DashboardProducts from 'views/admin/products/Products';
-// import DashboardUsers from 'views/admin/users/Users';
-// import EditProduct from 'views/admin/products/EditProduct';
-// import AddProduct from 'views/admin/products/AddProduct';
+ import Dashboard from 'views/admin/dashboard/Dashboard';
+ import DashboardProducts from 'views/admin/products/Products';
+ import DashboardMarkets from 'views/admin/market/Markets';
+
+
+ import DashboardUsers from 'views/admin/users/Users';
+ import EditProduct from 'views/admin/products/EditProduct';
+ import AddProduct from 'views/admin/products/AddProduct';
+
+ import AddMarket from 'views/admin/market/AddMarket';
+ import EditMarket from 'views/admin/market/EditMarket';
+
+import ListMarketSeller from 'views/admin/seller/Sellers'
+import EditSeller from 'views/admin/seller/EditSeller'
 
 import ProductSearch from 'components/product/ProductSearch';
 import SignUp from 'views/auth/SignUp';
@@ -79,27 +88,47 @@ const AppRouter = () => (
                 component={ScrollToTop(CheckOutStep3)}
                 path={ROUTES.CHECKOUT_STEP_3}
             />
-            {/*<AdminRoute
-            component={ScrollToTop(Dashboard)}
-            exact
-            path={ROUTES.DASHBOARD}
-        />
-        <AdminRoute
-            component={ScrollToTop(DashboardProducts)}
-            path={ROUTES.DASHBOARD_PRODUCTS}
-        />
-        <AdminRoute
-            component={ScrollToTop(DashboardUsers)}
-            path={ROUTES.DASHBOARD_USERS}
-        />
-        <AdminRoute
-            component={ScrollToTop(AddProduct)}
-            path={ROUTES.ADD_PRODUCT}
-        />
-        <AdminRoute
-            component={ScrollToTop(EditProduct)}
-            path={ROUTES.EDIT_PRODUCT}
-        />*/}
+            <AdminRoute
+                component={ScrollToTop(Dashboard)}
+                exact
+                path={ROUTES.DASHBOARD}
+            />
+              <AdminRoute
+                component={ScrollToTop(DashboardMarkets)}
+                path={ROUTES.DASHBOARD_MARKETS}
+            />
+             <AdminRoute
+                component={ScrollToTop(AddMarket)}
+                path={ROUTES.ADD_MARKET}
+            />
+              <AdminRoute
+                component={ScrollToTop(EditMarket)}
+                path={ROUTES.EDIT_MARKET}
+            />
+            <AdminRoute
+                component={ScrollToTop(ListMarketSeller)}
+                path={ROUTES.LIST_SELLERS}
+            />
+               <AdminRoute
+                component={ScrollToTop(EditSeller)}
+                path={ROUTES.EDIT_SELLER}
+            />
+            <AdminRoute
+                component={ScrollToTop(DashboardProducts)}
+                path={ROUTES.DASHBOARD_PRODUCTS}
+            />
+            <AdminRoute
+                component={ScrollToTop(DashboardUsers)}
+                path={ROUTES.DASHBOARD_USERS}
+            />
+            <AdminRoute
+                component={ScrollToTop(AddProduct)}
+                path={ROUTES.ADD_PRODUCT}
+            />
+            <AdminRoute
+                component={ScrollToTop(EditProduct)}
+                path={ROUTES.EDIT_PRODUCT}
+            />
             <PublicRoute component={ScrollToTop(PageNotFound)} />
         </Switch>
     </Router>

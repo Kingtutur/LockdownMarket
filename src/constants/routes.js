@@ -2,7 +2,12 @@ export const HOME = '/';
 export const ACCOUNT = '/account';
 export const ACCOUNT_EDIT = '/account/edit';
 export const DASHBOARD = '/dashboard';
-export const DASHBOARD_PRODUCTS = '/dashboard/products';
+export const DASHBOARD_MARKETS = '/dashboard/market';
+export const ADD_MARKET = '/dashboard/addMarket';
+export const EDIT_MARKET = '/dashboard/editMarket/:id';
+export const LIST_SELLERS = '/dashboard/marketSeller/:id';
+export const EDIT_SELLER = '/dashboard/editSeller/:id';
+
 export const DASHBOARD_USERS = '/dashboard/users';
 export const ADD_PRODUCT = '/dashboard/add';
 export const EDIT_PRODUCT = '/dashboard/edit/:id';
