@@ -102,7 +102,7 @@ class Firebase {
             const products = [];
             snapshot.forEach(doc => products.push({ id: doc.id, ...doc.data() }));
             const lastKey = snapshot.docs[snapshot.docs.length - 1];
-            
+            console.log(products)
             resolve({ products, lastKey });
           } catch (e) {
             reject(':( Failed to fetch products.');
@@ -130,7 +130,8 @@ class Firebase {
               const products = [];
               snapshot.forEach(doc => products.push({ id: doc.id, ...doc.data() }));
               const lastKey = snapshot.docs[snapshot.docs.length - 1];
-              
+              console.log(products)
+
               resolve({ products, lastKey, total});
             }
           } catch (e) {
@@ -159,6 +160,135 @@ class Firebase {
   editProduct = (id, updates) => this.db.collection('products').doc(id).update(updates);
 
   removeProduct = id => this.db.collection('products').doc(id).delete();
+
+  getMarket = (lastRefKey) => {
+    let didTimeout = false;
+
+    return new Promise(async (resolve, reject) => {
+      if (lastRefKey) {
+        console.log(lastRefKey)
+        console.log('ici')
+        try {
+          const query = this.db.collection('market').orderBy(app.firestore.FieldPath.documentId()).startAfter(lastRefKey).limit(12);
+          const snapshot = await query.get();
+          const market = [];
+          snapshot.forEach(doc => market.push({ id: doc.id, ...doc.data() }));
+          const lastKey = snapshot.docs[snapshot.docs.length - 1];
+          console.log(market)
+          resolve({ market, lastKey });
+        } catch (e) {
+          reject(':( Failed to fetch market.');
+        }
+      } else {
+        const timeout = setTimeout(() => {
+          didTimeout = true;
+          reject('Request timeout, please try again');
+        }, 15000); 
+
+        try {
+          // getting the total count of data
+
+          // adding shallow parameter for smaller response size
+          // better than making a query from firebase
+          // NOT AVAILEBLE IN FIRESTORE const request = await fetch(`${process.env.FIREBASE_DB_URL}/products.json?shallow=true`);
+          
+          const totalQuery = await this.db.collection('market').get();
+          const total = totalQuery.docs.length;
+          const query = this.db.collection('market').orderBy(app.firestore.FieldPath.documentId()).limit(12);
+          const snapshot = await query.get();
+
+          const marketId ='wGoP39o5euRWkdVx9jHE';
+          console.log(marketId);
+          const tttest = await this.db.collection('sellers').where('market_id','==',marketId).get();
+          const tt = (await tttest).docs.length;
+          const querytest = this.db.collection('sellers').where('market_id','==',marketId);
+          const sn = await querytest.get();
+          clearTimeout(timeout);
+          if (!didTimeout) {
+            const market = [];
+            snapshot.forEach(doc => market.push({ id: doc.id, ...doc.data() }));
+            const lastKey = snapshot.docs[snapshot.docs.length - 1];
+       //     console.log(market)
+//console.log('ici')
+const seller = [];
+sn.forEach(doc => seller.push({id: doc.id, ...doc.data()}));
+console.log(seller);
+            resolve({ market, lastKey, total});
+          }
+        } catch (e) {
+          if (didTimeout) return;
+          console.log('Failed to fetch products: An error occured while trying to fetch products or there may be no product ', e);
+          reject(':( Failed to fetch products.');
+        }
+      }
+    });
+}
+  addMarket = (id, market) => this.db.collection('market').doc(id).set(market);
+  generateMarketKey = () => this.db.collection('market').doc().id;
+
+  editMarket = (id, updates) => this.db.collection('market').doc(id).update(updates);
+  removeMarket = id => this.db.collection('market').doc(id).delete();
+
+
+  getSeller = (lastRefKey, marketId) => {
+    let didTimeout = false;
+
+    return new Promise(async (resolve, reject) => {
+      if (lastRefKey) {
+        console.log(lastRefKey)
+        console.log('ici')
+        try {
+          const query = this.db.collection('sellers').where('market_id','==',marketId).orderBy(app.firestore.FieldPath.documentId()).startAfter(lastRefKey).limit(12);
+          const snapshot = await query.get();
+          const seller = [];
+          snapshot.forEach(doc => market.push({ id: doc.id, ...doc.data() }));
+          const lastKey = snapshot.docs[snapshot.docs.length - 1];
+          console.log(seller)
+          resolve({ seller, lastKey });
+        } catch (e) {
+          reject(':( Failed to fetch sellers.');
+        }
+      } else {
+        const timeout = setTimeout(() => {
+          didTimeout = true;
+          reject('Request timeout, please try again');
+        }, 15000); 
+
+        try {
+          // getting the total count of data
+
+          // adding shallow parameter for smaller response size
+          // better than making a query from firebase
+          // NOT AVAILEBLE IN FIRESTORE const request = await fetch(`${process.env.FIREBASE_DB_URL}/products.json?shallow=true`);
+          
+          const totalQuery = await this.db.collection('sellers').get();
+          const total = totalQuery.docs.length;
+          const query = this.db.collection('sellers').where('market_id','==',marketId).orderBy(app.firestore.FieldPath.documentId()).limit(12);
+          const snapshot = await query.get();
+
+          clearTimeout(timeout);
+          if (!didTimeout) {
+            const seller = [];
+            snapshot.forEach(doc => seller.push({ id: doc.id, ...doc.data() }));
+            const lastKey = snapshot.docs[snapshot.docs.length - 1];
+            console.log(seller)
+
+            resolve({ seller, lastKey, total});
+          }
+        } catch (e) {
+          if (didTimeout) return;
+          console.log('Failed to fetch products: An error occured while trying to fetch products or there may be no product ', e);
+          reject(':( Failed to fetch products.');
+        }
+      }
+    });
+}
+
+addSeller = (id, seller) => this.db.collection('seller').doc(id).set(seller);
+generateSellerKey = () => this.db.collection('seller').doc().id;
+
+editSeller = (id, updates) => this.db.collection('seller').doc(id).update(updates);
+removeSeller = id => this.db.collection('seller').doc(id).delete();
 }
 
 const firebase = new Firebase();
