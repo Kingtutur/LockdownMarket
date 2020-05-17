@@ -57,8 +57,8 @@ const ProductList = ({
 
   return filteredProductsLength === 0 && !isLoading && !requestStatus ? (
     <div className="loader">
-      <h3 className="text-center">There are no items found</h3>
-      <span>Try using correct filters and keyword</span>
+      <h3 className="text-center">Aucun produits trouvé</h3>
+      <span>Essayez d'utiliser les bon mots clé</span>
     </div>
   ) : requestStatus ? (
     <div className="loader">
@@ -68,7 +68,7 @@ const ProductList = ({
           className="button button-small"
           onClick={fetchProducts}
       >
-        Try again
+        Réessayez
       </button>
     </div>
   ) : (
@@ -81,13 +81,13 @@ const ProductList = ({
             disabled={isFetching}
             onClick={fetchProducts}
         >
-          {isFetching ? 'Fetching Items...' : 'Fetch More Items'}
+          {isFetching ? 'Recherche de produits...' : 'Rechercher plus de produits'}
         </button>
       </div>
     )}
     {(!isFetching && productsLength >= totalItems) && (
       <div className="d-flex-center padding-l">
-        <span>End of result.</span>
+        <span>Fin des resultats</span>
       </div>
     )}
     </>

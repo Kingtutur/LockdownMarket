@@ -57,29 +57,29 @@ const SellerItem = ({ seller, dispatch, history }) => {
                 className="button button-border button-small"
                 onClick={onClickEdit}
             >
-              Edit
+              Modifier
             </button>
             &nbsp;
             <button
                 className="button button-border button-small"
                 onClick={onDeleteSeller}
             >
-              Delete
+              Supprimer
             </button>
             <div className="item-action-confirm">
-              <h5>Are you sure you want to delete this?</h5>
+              <h5>Etes vous sure?</h5>
               <button
                   className="button button-small button-border"
                   onClick={onCancelDelete}
               >
-                No
+                Non
               </button>
               &nbsp;
               <button
                   className="button button-small"
                   onClick={onConfirmDelete}
               >
-                Yes
+                Oui
               </button>
             </div>
           </div>

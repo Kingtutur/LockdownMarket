@@ -38,7 +38,7 @@ const Products = (props) => {
             className="button button-small"
             onClick={onClickAddProduct}
         >
-          Add New Product
+          Nouveau produit
         </button>
       </div>
       <ProductList
@@ -53,19 +53,19 @@ const Products = (props) => {
             <div className="grid grid-product grid-count-6">
               <div className="grid-col" />
               <div className="grid-col">
-                <h5>Name</h5>
+                <h5>Nom</h5>
               </div>
               <div className="grid-col">
-                <h5>Brand</h5>
+                <h5>Marque</h5>
               </div>
               <div className="grid-col">
-                <h5>Price</h5>
+                <h5>Prix</h5>
               </div>
               <div className="grid-col">
-                <h5>Date Added</h5>
+                <h5>Date d'ajout</h5>
               </div>
               <div className="grid-col">
-                <h5>Qty</h5>
+                <h5>Quantité</h5>
               </div>
             </div>
           )} 

@@ -67,19 +67,19 @@ const MarketItem = ({ market, dispatch, history }) => {
               Delete
             </button>
             <div className="item-action-confirm">
-              <h5>Are you sure you want to delete this?</h5>
+              <h5>Etes vous sure?</h5>
               <button
                   className="button button-small button-border"
                   onClick={onCancelDelete}
               >
-                No
+                Non
               </button>
               &nbsp;
               <button
                   className="button button-small"
                   onClick={onConfirmDelete}
               >
-                Yes
+                Oui
               </button>
             </div>
           </div>

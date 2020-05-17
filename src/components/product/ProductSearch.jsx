@@ -59,7 +59,7 @@ const ProductSearch = (props) => {
       </div>
       <div className="product-search-body">
         <div className="product-search-filter">
-          <h5 className="margin-0">Choose Filters</h5>
+          <h5 className="margin-0">Choisir filtre</h5>
         </div>
         <div className="product-search-filter-sub">
           <Filters 
@@ -72,7 +72,7 @@ const ProductSearch = (props) => {
         </div>
         <div className="product-search-recent">
           <div className="product-search-recent-header">
-            <h5>Recent Searches</h5>
+            <h5>Recherche récente</h5>
             <h5 onClick={onClearRecentSearch}>Clear</h5>
           </div>
           {filter.recent.map((item, index) => (
@@ -94,7 +94,7 @@ const ProductSearch = (props) => {
             </div>
           ))}
           {filter.recent.length === 0 && (
-            <h5 className="text-subtle">No recent searches</h5>
+            <h5 className="text-subtle">Aucune recherche recente</h5>
           )}
         </div>
       </div>

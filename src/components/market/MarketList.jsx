@@ -57,8 +57,8 @@ const MarketList = ({
 
   return filteredMarketsLength === 0 && !isLoading && !requestStatus ? (
     <div className="loader">
-      <h3 className="text-center">There are no items found</h3>
-      <span>Try using correct filters and keyword</span>
+      <h3 className="text-center">Aucun marché trouvé</h3>
+      <span>Utilisez les bons filtres</span>
     </div>
   ) : requestStatus ? (
     <div className="loader">
@@ -68,7 +68,7 @@ const MarketList = ({
           className="button button-small"
           onClick={fetchMarkets}
       >
-        Try again
+        Réessayer 
       </button>
     </div>
   ) : (
@@ -81,13 +81,13 @@ const MarketList = ({
             disabled={isFetching}
             onClick={fetchMarkets}
         >
-          {isFetching ? 'Fetching Items...' : 'Fetch More Items'}
+          {isFetching ? 'Recherche de marchés...' : 'Rechercher plus de marchés'}
         </button>
       </div>
     )}
     {(!isFetching && marketsLength >= totalItems) && (
       <div className="d-flex-center padding-l">
-        <span>End of result.</span>
+        <span>Fin des resultats</span>
       </div>
     )}
     </>

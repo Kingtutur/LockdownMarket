@@ -94,7 +94,7 @@ class ProductForm extends Component {
               </div>
               &nbsp;
               <div className="product-form-field">
-                <span className="d-block padding-s">Brand</span>
+                <span className="d-block padding-s">Marque</span>
                 <input
                     className="input-form d-block"
                     onChange={this.onProductBrandInput}
@@ -106,7 +106,7 @@ class ProductForm extends Component {
               </div>
             </div>
             <div className="product-form-field product-textarea">
-              <span className="d-block padding-s">Product Description</span>
+              <span className="d-block padding-s"> Description Produit</span>
               <textarea
                   className="input-form d-block"
                   onChange={this.onProductDescriptionInput}
@@ -118,7 +118,7 @@ class ProductForm extends Component {
             </div>
             <div className="d-flex">
               <div className="product-form-field">
-                <span className="d-block padding-s">Price</span>
+                <span className="d-block padding-s">Prix</span>
                 <input
                     className="input-form d-block"
                     onChange={this.onProductPriceInput}
@@ -130,7 +130,7 @@ class ProductForm extends Component {
               </div>
               &nbsp;
               <div className="product-form-field">
-                <span className="d-block padding-s">Stock Amount</span>
+                <span className="d-block padding-s">Stock</span>
                 <input
                     className="input-form d-block"
                     onChange={this.onProductMaxQuantityInput}
@@ -165,7 +165,7 @@ class ProductForm extends Component {
                   type="file"
               />
               <label htmlFor="product-input-file">
-                Choose image product
+                Choisir une image
               </label>
             </div>
             {imageUrl && (

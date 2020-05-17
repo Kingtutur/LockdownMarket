@@ -19,7 +19,7 @@ const EditProduct = (props) => {
   return (
     <>
       {!product && <Redirect to="/dashboard/products" />}
-      <h2>Edit Product</h2>
+      <h2>Edition produit</h2>
       <ProductForm 
           isLoading={isLoading}
           onSubmit={onSubmitForm}

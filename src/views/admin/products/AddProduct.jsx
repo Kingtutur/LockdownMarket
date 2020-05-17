@@ -14,7 +14,7 @@ const AddProduct = () => {
 
   return (
     <div>
-      <h2>Add New Product</h2>
+      <h2>Nouveau produit </h2>
       <ProductForm 
           isLoading={isLoading}
           onSubmit={onSubmit}
