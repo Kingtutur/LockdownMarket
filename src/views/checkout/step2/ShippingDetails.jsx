@@ -56,7 +56,7 @@ const ShippingDetails = ({
     <div className="checkout">
       <CheckOutHeader current={2} />
       <div className="checkout-step-2">
-        <h3 className="text-center">Shipping Details</h3>
+        <h3 className="text-center">Adresse de livraison</h3>
         <div className="checkout-shipping-wrapper">
           <div className="checkout-shipping-form">
             <div className="checkout-fieldset">
@@ -64,7 +64,7 @@ const ShippingDetails = ({
                 {errorField.fullname ? (
                   <span className="input-message">{errorField.fullname}</span>
                 ) : (
-                  <span className="d-block padding-s">Full Name</span>
+                  <span className="d-block padding-s">Nom complet</span>
                 )}
                 <input
                   className={`input-form d-block ${errorClassName("fullname")}`}
@@ -94,7 +94,9 @@ const ShippingDetails = ({
                 {errorField.address ? (
                   <span className="input-message">{errorField.address}</span>
                 ) : (
-                  <span className="d-block padding-s">Shipping Address</span>
+                  <span className="d-block padding-s">
+                    Adresse de livraison
+                  </span>
                 )}
                 <input
                   className={`input-form d-block ${errorClassName("address")}`}
@@ -128,7 +130,7 @@ const ShippingDetails = ({
                 onClick={() => history.push("/checkout/step1")}
                 type="button"
               >
-                Back
+                Retour
               </button>
               <button
                 className="button checkout-shipping-back"
@@ -141,7 +143,7 @@ const ShippingDetails = ({
                 }
                 onClick={onClickNext}
               >
-                Next Step
+                Continuer
               </button>
             </div>
           </div>

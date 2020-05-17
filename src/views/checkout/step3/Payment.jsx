@@ -95,9 +95,9 @@ const Payment = (props) => {
       {!shipping.isDone && <Redirect to="/checkout/step1" />}
       <CheckOutHeader current={3} />
       <form className="checkout-step-3" onSubmit={onConfirm}>
-        <h3 className="text-center">Payment</h3>
+        <h3 className="text-center">Paiement</h3>
         <br />
-        <span className="d-block padding-s">Payment Option</span>
+        <span className="d-block padding-s">Option de Paiement</span>
         <PayPalButton
           amount="0.01"
           // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
@@ -131,10 +131,10 @@ const Payment = (props) => {
             onClick={() => props.history.push("/checkout/step2")}
             type="button"
           >
-            Back
+            Retour
           </button>
           <button className="button" disabled={!!!paymentMode} type="submit">
-            Confirm
+            Payer
           </button>
         </div>
       </form>

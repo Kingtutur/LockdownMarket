@@ -1,43 +1,43 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { withRouter } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import { displayDate } from 'helpers/utils';
-import { ACCOUNT_EDIT } from 'constants/routes';
-import ImageLoader from 'components/ui/ImageLoader';
+import { displayDate } from "helpers/utils";
+import { ACCOUNT_EDIT } from "constants/routes";
+import ImageLoader from "components/ui/ImageLoader";
 
 const UserProfile = (props) => {
-  const profile = useSelector(state => state.profile);
+  const profile = useSelector((state) => state.profile);
 
   return (
     <div className="user-profile">
       <div className="user-profile-block">
         <div className="user-profile-banner">
           <div className="user-profile-banner-wrapper">
-            <ImageLoader 
-                alt="Banner"
-                className="user-profile-banner-img"
-                src={profile.banner} 
+            <ImageLoader
+              alt="Banner"
+              className="user-profile-banner-img"
+              src={profile.banner}
             />
           </div>
           <div className="user-profile-avatar-wrapper">
-            <ImageLoader 
-                alt="Avatar"
-                className="user-profile-img"
-                src={profile.avatar} 
+            <ImageLoader
+              alt="Avatar"
+              className="user-profile-img"
+              src={profile.avatar}
             />
           </div>
-          <button 
-              className="button button-small user-profile-edit"
-              onClick={() => props.history.push(ACCOUNT_EDIT)}
+          <button
+            className="button button-small user-profile-edit"
+            onClick={() => props.history.push(ACCOUNT_EDIT)}
           >
-            Edit Account
+            Modification profil
           </button>
         </div>
         <div className="user-profile-details">
           <h2 className="user-profile-name">{profile.fullname}</h2>
           <span>Email</span>
-          <br/>
+          <br />
           <h5>{profile.email}</h5>
           <span>Address</span>
           <br />
