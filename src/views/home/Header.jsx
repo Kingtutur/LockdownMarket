@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Filters from 'components/ui/Filters';
 
+import Stepper from 'react-stepper-horizontal';
+
 import { 
   resetFilter, 
   setTextFilter, 
@@ -102,8 +104,13 @@ const Header = ({
               : `Found ${filteredProductsLength} ${filteredProductsLength > 1 ? 'products' : 'product'}`
             }
           </h3>
-        ) : <h3>Eyewear</h3>}
+        ) : <h3>Bienvenue</h3>}
       </div>
+      <span><b>Evry CC : Top Carottes</b></span>
+      <div>
+        <Stepper steps={ [{title: 'Marchés'}, {title: 'Commerçants'}, {title: 'Produits'} ] } activeStep={ 2 } />
+      </div>
+      <br></br>
       <div className="product-list-header-actions">
         {isFiltered && (
           <button
